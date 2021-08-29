@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+
+        <h2 class="my-5">Student</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Birth Date</th>
+                <th scope="col">Gender</th> >
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="std: ${students}">
+                    <td th:text="${std.id}">Mark</td>
+                    <td th:text="${std.name}">Mark</td>
+                    <td th:text="${std.address}">Mark</td>
+                    <td th:text="${std.birthDate}">Mark</td>
+                    <td th:text="${std.gender}">Mark</td>
+                    <td><a th:href="@{/edit/{id}(id=${std.id})}" class="btn btn-primary"><i class="fas fa-user-edit"></i></a></td>
+                    <td><a th:href="@{/delete/{id}(id=${std.id})}" class="btn btn-danger"><i class="fa fa-user-times"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="/signup" class="btn btn-primary"><i class="fas fa-user-plus"></i></a> </p>
+
+    </div>
+
+</body>
+</html>
